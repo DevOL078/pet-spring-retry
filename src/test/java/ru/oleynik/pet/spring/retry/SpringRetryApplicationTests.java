@@ -1,10 +1,10 @@
-package ru.oleynik.pet.spring.template;
+package ru.oleynik.pet.spring.retry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringTemplateApplicationTests {
+class SpringRetryApplicationTests {
 
 	@Test
 	void contextLoads() {
