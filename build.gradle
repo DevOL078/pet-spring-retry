@@ -24,10 +24,14 @@ repositories {
 
 def lombokVersion = '1.18.30'
 def postgresqlVersion = '42.6.0'
+def springRetryVersion = '2.0.3'
+def springAspectVersion = '6.0.11'
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation "org.springframework.retry:spring-retry:${springRetryVersion}"
+	implementation "org.springframework:spring-aspects:${springAspectVersion}"
 	compileOnly "org.projectlombok:lombok:${lombokVersion}"
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"

@@ -7,24 +7,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.oleynik.pet.spring.retry.card.CardCreateUseCase;
+import ru.oleynik.pet.spring.retry.card.CardGetUseCase;
 import ru.oleynik.pet.spring.retry.model.Card;
-import ru.oleynik.pet.spring.retry.service.CardService;
 
 @RestController
 @RequestMapping("/card")
 @RequiredArgsConstructor
 public class CardController {
 
-    private final CardService service;
+    private final CardGetUseCase getUseCase;
+    private final CardCreateUseCase createUseCase;
 
     @GetMapping("/{id}")
     public Card get(@PathVariable("id") int id) {
-        return service.get(id);
+        return getUseCase.exec(id);
     }
 
     @PostMapping
     public int create(@RequestBody Card card) {
-        return service.create(card);
+        return createUseCase.exec(card);
     }
 
 }
